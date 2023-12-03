@@ -76,10 +76,10 @@ jobs:
         # Or use the appropriate command for your container registry
     - name: Build and push Docker images
       run: |
-        # cd commits-service && docker build -t uvinitharindi/commits-service:latest .
-        # docker push uvinitharindi/commits-service:latest
+        cd commit-service && docker build -t uvinitharindi/commits-service:latest .
+        docker push uvinitharindi/commits-service:latest
 
-        cd issues-service && docker build -t uvinitharindi/issues-service:latest .
+        cd ../issues-service && docker build -t uvinitharindi/issues-service:latest .
         docker push uvinitharindi/issues-service:latest
 
         cd ../pulls-service && docker build -t uvinitharindi/pulls-service:latest .
