@@ -77,7 +77,7 @@ jobs:
     - name: Build and push Docker images
       run: |
         cd commits-service && docker build -t uvinitharindi/commits-service:latest .
-        docker push uvinitharindi/commits-service latest
+        docker push uvinitharindi/commits-service:latest
 
         cd ../issues-service && docker build -t uvinitharindi/issues-service:latest .
         docker push uvinitharindi/issues-service:latest
