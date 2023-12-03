@@ -76,12 +76,12 @@ jobs:
         # Or use the appropriate command for your container registry
     - name: Build and push Docker images
       run: |
-        cd commit-service && docker build -t senuradockacc/commit-service:latest .
-        docker push senuradockacc/commit-service:latest
-        cd ../issues-service && docker build -t senuradockacc/issues-service:latest .
-        docker push senuradockacc/issues-service:latest
-        cd ../pull-request-service && docker build -t senuradockacc/pull-request-service:latest .
-        docker push senuradockacc/pull-request-service:latest
+        cd commits-service && docker build -t uvinitharindi/commits-service latest .
+        docker push uvinitharindi/commits-service latest
+        cd ../issues-service && docker build -t uvinitharindi/issues-service latest .
+        docker push uvinitharindi/issues-service latest
+        cd ../pull-request-service && docker build -t uvinitharindi/pulls-service latest .
+        docker push uvinitharindi/pulls-service latest
     # - name: Update kube config
     #   run: aws eks update-kubeconfig --name primuslearning
 
