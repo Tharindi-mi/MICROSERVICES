@@ -1,4 +1,4 @@
-	FROM node:slim
+FROM node:slim
 WORKDIR /issuesservice
 COPY . /issuesservice
 RUN npm install
