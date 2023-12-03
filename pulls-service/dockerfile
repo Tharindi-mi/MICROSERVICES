@@ -1,6 +1,6 @@
 FROM node:slim
 WORKDIR /pullsservice
-COPY . /pullservice
+COPY . /pullsservice
 RUN npm install
-EXPOSE 8080
+EXPOSE 3002
 CMD node index.js
