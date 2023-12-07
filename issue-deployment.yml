@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: commit-service
+  name: issues-service
   labels:
-    app: commit-service
+    app: issues-service
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: commit-service
+      app: issues-service
   template:
     metadata:
       labels:
-        app: commit-service
+        app: issues-service
     spec:
       containers:
-        - name: commit-service
-          image: uvinitharindi/issues-service:latest 
+        - name: issues-service
+          image: uvinitharindi/issues-service:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 3001

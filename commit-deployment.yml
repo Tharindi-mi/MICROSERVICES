@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: commit-service
-          image: uvinitharindi/issues-service:latest 
+          image: uvinitharindi/commits-service:latest 
           imagePullPolicy: Always
           ports:
-            - containerPort: 3001
+            - containerPort: 3000
