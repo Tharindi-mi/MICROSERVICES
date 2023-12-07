@@ -1,5 +1,6 @@
 const express = require('express');
 const axios = require('axios');
+const { pullrequestservice } = require('./pullrequestservice');
 const app = express();
 
 app.use(express.json());
@@ -10,9 +11,8 @@ app.get('/', (req, res) => {
 
 const commitservice = `http://commit-service:80`
 const issueservice = `http://issues-service:80`
-const pullrequestservice = `http://pulls-service:80`
-
-//Commits Service 
+const pullrequestservice = `http://pull-service:80`
+//Commit Service 
 app.get('/commits-service/:username/:repository', (req, res) => {
     axios.get(`${commitservice}/api/commits/${req.params.username}/${req.params.repository}`).then((response)=>{
         res.json(response.data);
