@@ -1,14 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: main-app-service
+  name: issues-service
 spec:
   selector:
-    app: main-app-service
+    app: issues-service
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 3003
-  type: LoadBalancer
-
- 
+      targetPort: 3001
+  type: ClusterIP

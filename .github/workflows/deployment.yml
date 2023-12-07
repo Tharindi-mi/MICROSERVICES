@@ -13,10 +13,10 @@ jobs:
       uses: actions/checkout@v3
 
     # Add steps to install dependencies for your services, if needed
-    # - name: Install dependencies and run unit tests for each service
-    #   run: |
-    #     cd issues-service && npm install && npm test
-    #     cd ../main-service && npm install && npm test
+    - name: Install dependencies and run unit tests for each service
+      run: |
+        cd issues-service && npm install && npm test
+        cd ../main-service && npm install && npm test
 
     - name: Login to Docker Registry
       run: |
@@ -24,8 +24,7 @@ jobs:
         # Or use the appropriate command for your container registry
     - name: Build and push Docker images
       run: |
-        cd main-service && docker build -t uvinitharindi/main-service:latest .
-        docker push uvinitharindi/main-service:latest
+      
         
         # cd commit-service && docker build -t uvinitharindi/commits-service:latest .
         # docker push uvinitharindi/commits-service:latest
@@ -40,34 +39,34 @@ jobs:
         # docker push uvinitharindi/main-service:latest
 
    
-    # - name: Configure Google Cloud CLI
-    #   uses: google-github-actions/setup-gcloud@v0
-    #   with:
-    #       service_account_key: ${{ secrets.GCP_SA_KEY }}
-    #       project_id: ${{ secrets.GCP_PROJECT_ID }}
-    #       install_components: 'gke-gcloud-auth-plugin'
-    #       export_default_credentials: true
+    - name: Configure Google Cloud CLI
+      uses: google-github-actions/setup-gcloud@v0
+      with:
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+          install_components: 'gke-gcloud-auth-plugin'
+          export_default_credentials: true
       
-    # - name: Deploy to GKE
-    #   run: |
-    #       gcloud container clusters get-credentials clustertest --project ${{ secrets.GCP_PROJECT_ID }} --region us-central1-c
+    - name: Deploy to GKE
+      run: |
+          gcloud container clusters get-credentials iitasscluster --project ${{ secrets.GCP_PROJECT_ID }} --region us-central1-c
           
-    #       sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" commit-deployment.yaml
-    #       sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" commit-service.yaml
-    #       kubectl apply -f commit-deployment.yaml
-    #       kubectl apply -f commit-service.yaml
+          sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" commit-deployment.yaml
+          sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" commit-service.yaml
+          kubectl apply -f commit-deployment.yaml
+          kubectl apply -f commit-service.yaml
   
-    #       sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" issues-deployment.yaml
-    #       sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" issues-service.yaml
-    #       kubectl apply -f issues-deployment.yaml
-    #       kubectl apply -f issues-service.yaml
+          sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" issues-deployment.yaml
+          sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" issues-service.yaml
+          kubectl apply -f issues-deployment.yaml
+          kubectl apply -f issues-service.yaml
   
-    #       sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" pull-deployment.yaml
-    #       sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" pull-service.yaml
-    #       kubectl apply -f pull-deployment.yaml
-    #       kubectl apply -f pull-service.yaml
+          sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" pull-deployment.yaml
+          sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" pull-service.yaml
+          kubectl apply -f pull-deployment.yaml
+          kubectl apply -f pull-service.yaml
   
-    #       sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" main-deployment.yaml
-    #       sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" main-service.yaml
-    #       kubectl apply -f main-deployment.yaml
-    #       kubectl apply -f main-service.yaml
+          sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" main-deployment.yaml
+          sed -i "s/GOOGLE_PROJECT/$GOOGLE_PROJECT/g" main-service.yaml
+          kubectl apply -f main-deployment.yaml
+          kubectl apply -f main-service.yaml
