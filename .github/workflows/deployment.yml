@@ -26,17 +26,16 @@ jobs:
       run: |
       
         
-        # cd commit-service && docker build -t uvinitharindi/commits-service:latest2 .
-        # docker push uvinitharindi/commits-service:latest2
+        cd commit-service && docker build -t uvinitharindi/commit-service:v3 --build-arg AWS_ACCESS_KEY_ID_ARG=${{ secrets.AWS_ACCESS_KEY_ID }} --build-arg AWS_SECRET_ACCESS_KEY_ARG=${{ secrets.AWS_SECRET_ACCESS_KEY }} .
+        docker push uvinitharindi/commits-service:v3
 
-        # cd ../issues-service && docker build -t uvinitharindi/issues-service:latest .
-        # docker push uvinitharindi/issues-service:latest
+        cd ../issues-service && docker build -t uvinitharindi/issues-service:v3 .
+        docker push uvinitharindi/issues-service:v3
 
-        # cd ../pulls-service && docker build -t uvinitharindi/pulls-service:latest .
-        # docker push uvinitharindi/pulls-service:latest
-
-        # cd ../main-service && docker build -t uvinitharindi/main-service:latest .
-        # docker push uvinitharindi/main-service:latest
+        cd ../pulls-service && docker build -t uvinitharindi/pulls-service:v3 .
+        docker push uvinitharindi/pulls-service:v3
+        cd ../main-service && docker build -t uvinitharindi/main-service:v3 .
+        docker push uvinitharindi/main-service:v3
 
    
     - name: Configure Google Cloud CLI

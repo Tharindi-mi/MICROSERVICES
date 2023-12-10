@@ -8,7 +8,7 @@ app.get('/', (req, res) => {
   res.json({health:"Main Application Service UP"})
 })
 
-const commitservice = `http://commit-service:80`
+const commitservice = 'http://commit-service:80'
 const issueservice = `http://issues-service:80`
 const pullrequestservice = `http://pull-service:80`
 //Commit Service 
