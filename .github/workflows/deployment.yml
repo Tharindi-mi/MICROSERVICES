@@ -26,8 +26,8 @@ jobs:
       run: |
       
         
-        # cd commit-service && docker build -t uvinitharindi/commits-service:latest1 .
-        # docker push uvinitharindi/commits-service:latest1
+        # cd commit-service && docker build -t uvinitharindi/commits-service:latest2 .
+        # docker push uvinitharindi/commits-service:latest2
 
         # cd ../issues-service && docker build -t uvinitharindi/issues-service:latest .
         # docker push uvinitharindi/issues-service:latest

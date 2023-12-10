@@ -11,7 +11,7 @@ AWS.config.update({
 
 const dynamoClient = new AWS.DynamoDB.DocumentClient()
 
-const TABLE_NAME = "commit-table"
+const TABLE_NAME = "commit_store"
 
 // this function is for adding/updating an entry/member in the table
 // make sure you add the item being added and the table name in the params const
