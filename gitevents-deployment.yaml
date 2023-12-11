@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: events-service
+  labels:
+    app: events-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: events-service
+  template:
+    metadata:
+      labels:
+        app: events-service
+    spec:
+      containers:
+        - name: events-service
+          image: uvinitharindi/events-service:v3
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3004

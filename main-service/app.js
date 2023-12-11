@@ -1,6 +1,6 @@
 const express = require('express');
 const axios = require('axios');
-const app = express();
+const app = express();   
 
 app.use(express.json());
 
@@ -11,6 +11,7 @@ app.get('/', (req, res) => {
 const commitservice = 'http://commit-service:80'
 const issueservice = `http://issues-service:80`
 const pullrequestservice = `http://pull-service:80`
+const peventservice = `http://events-service:80`
 //Commit Service 
 app.get('/commits-service/:username/:repository', (req, res) => {
     axios.get(`${commitservice}/api/commits/${req.params.username}/${req.params.repository}`).then((response)=>{
@@ -46,5 +47,19 @@ app.get('/pulls-service/:username/:repository', (req, res) => {
         res.json(err);
     })
 })
+
+
+//events Service 
+app.get('/api/events/:username', (req, res) => {
+    const username = req.params.username;
+    axios.get(`https://api.github.com/users/${username}/events`)
+        .then((response) => {
+            const eventsCount = response.data.length;
+            res.json({ username: username, eventsCount: eventsCount });
+        })
+        .catch((error) => {
+            res.status(404).json({ error: "User not found or unable to fetch events" });
+        });
+});
 
 module.exports = app;
