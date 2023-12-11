@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: issues-service
-          image: uvinitharindi/issues-service:v3
+          image: uvinitharindi/issues-service:v4
           imagePullPolicy: Always
           ports:
             - containerPort: 3001
