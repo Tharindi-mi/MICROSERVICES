@@ -38,7 +38,7 @@ jobs:
         cd ../main-service && docker build -t uvinitharindi/main-service:v3 .
         docker push uvinitharindi/main-service:v3
 
-        cd gitevents-service && docker build -t uvinitharindi/events-service:v3 
+        cd ../gitevents-service && docker build -t uvinitharindi/events-service:v3 
         docker push uvinitharindi/events-service:v3
 
 
