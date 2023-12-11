@@ -50,7 +50,7 @@ app.get('/pulls-service/:username/:repository', (req, res) => {
 
 
 //events Service 
-app.get('/api/events/:username', (req, res) => {
+app.get('/events-service/:username', (req, res) => {
     const username = req.params.username;
     axios.get(`https://api.github.com/users/${username}/events`)
         .then((response) => {
