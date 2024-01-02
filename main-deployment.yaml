@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: main-app-service
-          image: uvinitharindi/main-service:v4
+          image: uvinitharindi/main-service:v41
           imagePullPolicy: Always
           ports: 
             - containerPort: 3003
