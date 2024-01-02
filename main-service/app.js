@@ -39,6 +39,15 @@ app.get('/issues-service/:username/:repository', (req, res) => {
     })
 })
 
+//Issues Retrieve from AWS DynamoDB
+app.get('/issues-service', (req, res) => {
+    axios.get(`${commitservice}/api/issues/`).then((response)=>{
+        res.json(response.data);
+    }).catch((err)=>{
+        res.json(err);
+    })
+})
+
 //Pull Request Service
 app.get('/pulls-service/:username/:repository', (req, res) => {
     axios.get(`${pullrequestservice}/api/pulls/${req.params.username}/${req.params.repository}`).then((response)=>{

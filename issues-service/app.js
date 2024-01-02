@@ -15,4 +15,15 @@ app.get('/api/issues/:username/:repository', (req, res) => {
   })
 })
 
+app.get('/api/issues/:username/:repository', (req, res) => {
+  axios.get(`https://api.github.com/repos/${req.params.username}/${req.params.repository}/issues`).then((response)=>{
+    addissue(response.data).then(()=>{
+      res.json(response.data)
+    }).catch((err)=>{
+      res.json({error:err})
+    })
+  }).catch((e)=>{
+    res.json({message:e.message})
+  })
+})
 module.exports = app;
