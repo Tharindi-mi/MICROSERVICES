@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: events-service
-          image: uvinitharindi/events-service:v2
+          image: uvinitharindi/events-service:v3
           imagePullPolicy: Always
           ports:
             - containerPort: 3004
