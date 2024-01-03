@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: pull-service
-          image: uvinitharindi/pulls-service:v42
+          image: uvinitharindi/pulls-service:v5
           imagePullPolicy: Always
           ports:
             - containerPort: 3002
