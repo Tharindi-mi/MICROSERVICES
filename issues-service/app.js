@@ -6,12 +6,20 @@ app.get('/', (req, res) => {
   res.json({health:"Issues Service UP"})
 })
 
-app.get('/api/issues/:username/:repository', (req, res) => {
+// app.get('/api/issues/:username/:repository', (req, res) => {
 
-  axios.get(`https://api.github.com/repos/${req.params.username}/${req.params.repository}/issues`).then((response)=>{
-    res.json(response.data)
-  }).catch((e)=>{
-    res.json({message:e.message})
+//   axios.get(`https://api.github.com/repos/${req.params.username}/${req.params.repository}/issues`).then((response)=>{
+//     res.json(response.data)
+//   }).catch((e)=>{
+//     res.json({message:e.message})
+//   })
+// })
+
+app.get('/api/issues', (req, res) => {
+  getissues().then((issues)=>{
+    res.json(issues)
+  }).catch((error)=>{
+    res.json({error: error});
   })
 })
 
