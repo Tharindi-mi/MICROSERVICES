@@ -1,5 +1,6 @@
 const express = require('express');
 const axios = require('axios');
+const { addissue, getissues} = require('./dynamodb');
 const app = express();
 
 app.get('/', (req, res) => {
