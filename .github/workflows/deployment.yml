@@ -31,8 +31,8 @@ jobs:
         cd commit-service && docker build -t uvinitharindi/commits-service:v51 --build-arg AWS_ACCESS_KEY_ID_ARG=${{ secrets.AWS_ACCESS_KEY_ID }} --build-arg AWS_SECRET_ACCESS_KEY_ARG=${{ secrets.AWS_SECRET_ACCESS_KEY }} .
         docker push uvinitharindi/commits-service:v51
 
-        cd ../issues-service && docker build -t uvinitharindi/issues-service:v51 --build-arg AWS_ACCESS_KEY_ID_ARG=${{ secrets.AWS_ACCESS_KEY_ID }} --build-arg AWS_SECRET_ACCESS_KEY_ARG=${{ secrets.AWS_SECRET_ACCESS_KEY }} .
-        docker push uvinitharindi/issues-service:v51
+        cd ../issues-service && docker build -t uvinitharindi/issues-service:v6 --build-arg AWS_ACCESS_KEY_ID_ARG=${{ secrets.AWS_ACCESS_KEY_ID }} --build-arg AWS_SECRET_ACCESS_KEY_ARG=${{ secrets.AWS_SECRET_ACCESS_KEY }} .
+        docker push uvinitharindi/issues-service:v6
 
         cd ../pulls-service && docker build -t uvinitharindi/pulls-service:v51 .
         docker push uvinitharindi/pulls-service:v51
